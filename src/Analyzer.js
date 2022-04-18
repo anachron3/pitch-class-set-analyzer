@@ -86,6 +86,11 @@ class Analyzer extends React.Component
 
     // We may need to normalize sets for other operations, so 
     // separating this function out...
+    // 
+    // Todo:  rather than checking for ties and pulling 
+    // penultimate/antepenultimate comparisons (which is traditional)
+    // we could either recurse on a smaller set or try to iterate
+    // through all distances first.  
     normalize(arr) {
         let size = 0;
         let smallest = 13;
