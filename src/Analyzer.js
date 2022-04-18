@@ -107,20 +107,17 @@ class Analyzer extends React.Component
             arr.push(arr.shift());
         }
 
-        console.log("tying_index:", tying_index);
-        console.log("smallest_index:", smallest_index);
         if(tying_index>0){ 
             // compare the first to penultimate values
             // to establish the tiebreaker
             let comparison1 = this.mod(smallest_index-2, arr.length);
             let comparison2 = this.mod(tying_index-2, arr.length);
-            if( (arr[comparison1]-arr[smallest_index]) < 
+            if( (arr[comparison1]-arr[smallest_index]) > 
                     (arr[comparison2]-arr[tying_index]) ) {
                         console.log("here");
                         smallest_index = tying_index;
                     }
         }
-        console.log("final smallest_index:", smallest_index);
         // re-arrange the array into its most compact permutation
         // (rotate it, using shift, up to the smallest_index)
         for(let i=0; i<smallest_index; i++){
